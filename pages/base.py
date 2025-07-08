@@ -75,6 +75,16 @@ class BaseTestCase(unittest.TestCase):
             'new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList().scrollToEnd(1)'
         )
 
+    def click_middle(self):  #點螢幕中間
+        size = self.driver.get_window_size()
+        x = size['width'] // 2
+        y = size['height'] // 2
+
+        self.driver.execute_script("mobile: clickGesture", {
+            "x": x,
+            "y": y
+        })
+
     def tearDown(self):
             pass
 
